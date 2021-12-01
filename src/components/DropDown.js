@@ -4,17 +4,17 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export const DropDown = (props) => {
 
-  const [value, setValue] = useState('');
-  const handleSelect = (e) => {
-    setValue(e);
-  }
+  // const [value, setValue] = useState('');
+  // const handleSelect = (e) => {
+  //   setValue(e);
+  // }
 
   return (
     <>
       <DropdownButton
         style={{ width: "500px", margin: "auto" }}
         title="Grocery Lists"
-        onSelect={handleSelect}
+        // onSelect={handleSelect}
         variant='primary'
       >
         {props.valArray.map((val) => (

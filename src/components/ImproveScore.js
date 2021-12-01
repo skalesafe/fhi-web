@@ -3,10 +3,10 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 export const ImproveScore = (props) => {
 
-  const [value, setValue] = useState('');
-  const handleSelect = (e) => {
-    setValue(e);
-  }
+  // const [value, setValue] = useState('');
+  // const handleSelect = (e) => {
+  //   setValue(e);
+  // }
 
   return (
     <Container
@@ -32,7 +32,7 @@ export const ImproveScore = (props) => {
               >{val}</Form.Label>
             <Form.Check
               type='checkbox'
-              onChange={handleSelect.bind(this, val)}
+              // onChange={handleSelect.bind(this, val)}
               key={val}
             />
           </Col>

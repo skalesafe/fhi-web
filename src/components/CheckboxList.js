@@ -3,10 +3,10 @@ import { Form, Container, Row, Col } from 'react-bootstrap';
 
 export const CheckboxList = (props) => {
 
-  const [value, setValue] = useState('');
-  const handleSelect = (e) => {
-    setValue(e);
-  }
+  // const [value, setValue] = useState('');
+  // const handleSelect = (e) => {
+  //   setValue(e);
+  // }
 
   return (
     <Container
@@ -30,7 +30,7 @@ export const CheckboxList = (props) => {
             <Col>
             <Form.Check
               type='checkbox'
-              onChange={handleSelect.bind(this, val)}
+              // onChange={handleSelect.bind(this, val)}
               key={val}
               style={{textAlign: 'right'}}
             />
