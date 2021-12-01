@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 
 export const ScoreComponent = (props) => {
