@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 export const ImproveScore = (props) => {
@@ -7,6 +7,7 @@ export const ImproveScore = (props) => {
   // const handleSelect = (e) => {
   //   setValue(e);
   // }
+
 
   return (
     <Container

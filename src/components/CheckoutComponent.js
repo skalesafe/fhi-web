@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 
 export const CheckoutComponent = (props) => {
@@ -7,6 +7,7 @@ export const CheckoutComponent = (props) => {
   // const handleSelect = (e) => {
   //   setValue(e);
   // }
+
 
   return (
     <Container
