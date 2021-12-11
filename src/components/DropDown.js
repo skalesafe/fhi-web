@@ -4,22 +4,19 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export const DropDown = (props) => {
 
-  // const [value, setValue] = useState('');
-  // const handleSelect = (e) => {
-  //   setValue(e);
-  // }
-
-
   return (
     <>
       <DropdownButton
-        style={{ width: "500px", margin: "auto" }}
-        title="Grocery Lists"
-        // onSelect={handleSelect}
+        style={{ width: "45%", margin: "auto" }}
+        title={ props.title ? props.title : props.valArray && props.valArray.length ? props.valArray[0] : "Grocery Lists"}
         variant='primary'
       >
         {props.valArray.map((val) => (
-          <Dropdown.Item className="drop-down" key={val} eventKey={val}>{val}</Dropdown.Item>
+          <Dropdown.Item className="drop-down" key={val} eventKey={val}
+            onClick={props.handleDropdownSelect}
+          >
+            {val}
+          </Dropdown.Item>
         ))}
       </DropdownButton>
     </>

@@ -1,56 +1,81 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 
 export const ImproveScore = (props) => {
 
-  // const [value, setValue] = useState('');
-  // const handleSelect = (e) => {
-  //   setValue(e);
-  // }
-
+  const improveArray = props.improveArray;
 
   return (
-    <Container
-      className="border border-dark"
-      style={{
-        maxWidth: 'fit-content',
-        marginTop: '5%'
-
-      }}
-      // className="d-flex"
-    >
-      <Row
-        className="my-4"
-      >
-        {props.improveArray.map((val) => (
-        <>
-          <Col
-              style={{ minWidth: 'fit-content' }}
-              className="justify-content-center"
-          >
-              <Form.Label
-                className="border border-dark"
-              >{val}</Form.Label>
-            <Form.Check
-              type='checkbox'
-              // onChange={handleSelect.bind(this, val)}
-              key={val}
-            />
-          </Col>
-          </>
-      ))}
-      </Row>
-      <Row
-        className="my-4 mx-4"
+  <>
+    {improveArray && improveArray.length ?
+      <Container
+        className="border border-dark"
         style={{
           maxWidth: 'fit-content',
-          float: 'right'
+          marginTop: '5%'
+
         }}
       >
-        <Button>Update Score</Button>
-      </Row>
+        <Row
+          className="my-4"
+          style={{ display: 'flex' }}
+          key={1}
+        >
+          {props.improveArray.map((val) => (
+            <div key={val.A}
+              style={{
+                width: 'auto'
+              }}
+            >
+              <Col
+                style={{
+                  minWidth: 'fit-content',
+                  width: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}
+                className="justify-content-center"
+              >
+                <Form.Label
+                  className="border border-dark"
+                  style={{
+                    border: '1px solid black',
+                    borderRadius: '1rem',
+                    padding: '1rem'
+                  }}
+                >{val.A}</Form.Label>
+                <Form.Check.Input
+                  type='checkbox'
+                  title={JSON.stringify(val)}
+                  onChange={props.handleCheckSelect}
+                />
+              </Col>
+            </div>
+          ))}
+        </Row>
+        <Row
+          className="my-4 mx-4"
+          key={2}
+          style={{
+            maxWidth: 'fit-content',
+            float: 'right'
+          }}
+        >
+          <Button
+              onClick={props.handleImprovedScore}
+          >
+            Update Score
+          </Button>
+        </Row>
 
-    </Container>
+      </Container>
+      :
+      < Spinner animation="border" role="status" >
+        <span>Loading...</span>
+      </Spinner >
+      }
+      </>
   )
 
 }

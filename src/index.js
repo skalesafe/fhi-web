@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './HomePage';
+import { HomePage } from './HomePage';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

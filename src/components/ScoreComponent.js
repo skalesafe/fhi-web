@@ -1,28 +1,27 @@
 import React from 'react';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 export const ScoreComponent = (props) => {
-
-  // const [value, setValue] = useState('');
-  // const handleSelect = (e) => {
-  //   setValue(e);
-  // }
 
   return (
     <Container
       style={{
         maxWidth: 'fit-content',
-        // marginLeft: '30%',
-        marginTop: '5%'
-
+        marginTop: '5%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '2rem'
       }}
     >
       {props.scoreArray.map((val) => (
-        <Row key={val}
-          style={{ display: 'flex' }}
-          className="my-3"
-        >
-          <Button size='lg'>{val}</Button>
+        <Row key={val}>
+          <label
+            style={{
+              border: '1px solid black',
+              borderRadius: '1rem',
+              padding: '2rem'
+            }}
+          >{val}</label>
         </Row>
       ))}
 

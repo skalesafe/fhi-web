@@ -1,45 +1,61 @@
 import React from 'react';
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Form, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 export const CheckboxList = (props) => {
 
-
-  // const [value, setValue] = useState('');
-  // const handleSelect = (e) => {
-  //   setValue(e);
-  // }
+  const checkArray = props.checkArray;
 
   return (
-    <Container
-      style={{
-        maxWidth: 'fit-content',
-        // marginLeft: '30%',
-        marginTop: '5%',
-        float: 'right'
-
-      }}
-    >
-        {props.checkArray.map((val) => (
-          <Row key={val}
-            style={{display: 'flex'}}
-          >
-            <Col
-              style={{minWidth: 'fit-content'}}
+  <>
+    {checkArray && checkArray.length ?
+        <Container
+          style={{
+            maxWidth: 'fit-content',
+            marginTop: '5%',
+            float: 'right',
+            height: '25rem',
+            overflowY: 'scroll',
+            scrollBehavior: 'smooth',
+            backgroundColor: 'aliceblue',
+          }}
+        >
+          {checkArray.map((val) => (
+            <Row key={val.A}
+              style={{ display: 'flex' }}
             >
-            <Form.Label>{val}</Form.Label>
-            </Col>
-            <Col>
-            <Form.Check
-              type='checkbox'
-              // onChange={handleSelect.bind(this, val)}
-              key={val}
-              style={{textAlign: 'right'}}
-            />
-            </Col>
-          </Row>
-         ))}
+              <Col>
+                <Form.Check type='checkbox'
+                  style={{ textAlign: 'right' }}
+                >
+                  <Form.Check.Label
+                    style={{
+                      float: 'left',
+                      paddingRight: '7rem'
+                    }}
+                  >
+                    {val.A}
+                  </Form.Check.Label>
+                  <Form.Check.Input
+                    type="checkbox"
+                    style={{
+                      float: 'right'
+                    }}
+                    title={JSON.stringify(val)}
+                    onChange={props.handleCheckSelect}
+                  />
+                </Form.Check>
+              </Col>
+            </Row>
+          ))}
 
-    </Container>
+        </Container>
+        :
+        < Spinner animation="border" role="status" >
+          <span>Loading...</span>
+        </Spinner >
+
+      }
+      </>
   )
 
 }

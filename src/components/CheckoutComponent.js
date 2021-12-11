@@ -3,12 +3,6 @@ import { Container, Button } from 'react-bootstrap';
 
 export const CheckoutComponent = (props) => {
 
-  // const [value, setValue] = useState('');
-  // const handleSelect = (e) => {
-  //   setValue(e);
-  // }
-
-
   return (
     <Container
       style={{
@@ -19,7 +13,9 @@ export const CheckoutComponent = (props) => {
 
       }}
     >
-      <Button size='lg'>Checkout</Button>
+      <Button size='lg'
+        onClick={props.handleCheckout}
+      >Checkout</Button>
 
     </Container>
   )
