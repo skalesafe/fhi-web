@@ -81,6 +81,9 @@ export const HomePage = () => {
       setCheckArray1(allArray.slice(0, 25));
 
     setScoreArray(scoreArray1);
+
+    document.querySelectorAll('input:checked').forEach(item => item.checked = false);
+
     setImproveArray(defImproveArray);
   }
 
@@ -198,7 +201,7 @@ export const HomePage = () => {
     }, 0);
 
     const TotalCarb = checkItems.reduce((prev, cur) => {
-      prev += cur.U;
+      prev += cur.C;
       return prev;
     }, 0);
 
@@ -209,7 +212,7 @@ export const HomePage = () => {
 
     let fatcalc = TotalFat / TotalCalories * 1000;
     const FatScore = isNaN(fatcalc) ? 0 :
-      ((fatcalc) > 2 && (fatcalc) < 3) ? 5 : 0;
+      ((fatcalc) > 2 && (fatcalc) < 7) ? 5 : 0;
 
     let carbcalc = TotalCarb / TotalCalories * 1000;
     const CarbScore = isNaN(carbcalc) ? 0 :
@@ -342,7 +345,6 @@ export const HomePage = () => {
   }
 
 
-
   return (
     <div className="App">
       <header className="App-header">
@@ -375,7 +377,11 @@ export const HomePage = () => {
             paddingBottom: '2rem'
           }}
         >
-          <ImproveScore improveArray={improveArray} handleCheckSelect={handleCheckSelect} handleImprovedScore={handleImprovedScore}/>
+          <ImproveScore
+            improveArray={improveArray}
+            handleCheckSelect={handleCheckSelect}
+            handleImprovedScore={handleImprovedScore}
+          />
         </Row>
       </Container>
     </div>
