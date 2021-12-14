@@ -45,8 +45,10 @@ try {
 var content = fs.readFileSync('./xlx/final-FHI-Group3.json', 'utf8')
 gData = JSON.parse(content);
 
+console.log(process.env);
+
 app.get('/', (req, res) => {
-  res.send({ express: 'Connected to NodeJS server' });
+  res.send({ express: `Connected to NodeJS server  ${process.env.HOSTNAME}` });
 })
 
 app.get('/grocery1', (req, res) => {
@@ -54,7 +56,6 @@ app.get('/grocery1', (req, res) => {
   res.send(grocery1);
 })
 
-console.log(process.env.hostname);
 
 server = app.listen(config.port, () => {
   console.log(`Listening to port ${config.port}`);
