@@ -54,6 +54,8 @@ app.get('/grocery1', (req, res) => {
   res.send(grocery1);
 })
 
+console.log(process.env.hostname);
+
 server = app.listen(config.port, () => {
   console.log(`Listening to port ${config.port}`);
 });
