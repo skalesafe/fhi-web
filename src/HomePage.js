@@ -32,7 +32,7 @@ export const HomePage = () => {
   useEffect(() => {
 
     async function fetchData() {
-      const result = await axios('http://fhi-server.westus2.azurecontainer.io:3001/:3001/grocery1', {
+      const result = await axios('http://fhi-server.westus2.azurecontainer.io:3001/grocery1', {
         proxy: {
           host: 'localhost',
           port: 3001
