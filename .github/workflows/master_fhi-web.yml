@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://skaleregistry.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_3a41456344d747a58706bb228c8affb0 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_bf74b8f8fd5b45a3b5f02e199761d5db }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_2a7a74e852b049eb946be3cb883ef232 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_1a45af2022524aa39336023bd54b9da3 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: skaleregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3a41456344d747a58706bb228c8affb0 }}/skaleregistry/skaleregistry/fhi-container-app:${{ github.sha }}
+        tags: skaleregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2a7a74e852b049eb946be3cb883ef232 }}/fhi-web:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'fhi-web'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_dd4472d9da154a2db0a0ac09c2d2f7a5 }}
-        images: 'skaleregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3a41456344d747a58706bb228c8affb0 }}/skaleregistry/skaleregistry/fhi-container-app:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_220c2cc356d144e2b6258762e3a68078 }}
+        images: 'skaleregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2a7a74e852b049eb946be3cb883ef232 }}/fhi-web:${{ github.sha }}'
