@@ -31,13 +31,12 @@ export const HomePage = () => {
   /** Initialization */
   useEffect(() => {
 
+
     async function fetchData() {
-      const result = await axios('http://fhi-server.westus2.azurecontainer.io:3001/grocery1', {
-        proxy: {
-          host: 'localhost',
-          port: 3001
-        }
-      });
+
+      const url = process.env.REACT_APP_PROTOCOL + '://' + process.env.REACT_APP_SERVER + ':' + process.env.REACT_APP_SERVER_PORT + '/grocery1';
+
+      const result = await axios(url);
       let cArray = result.data;
       setAllArray(cArray);
       setCheckArray1(cArray.slice(0, 25));

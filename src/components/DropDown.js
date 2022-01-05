@@ -4,10 +4,25 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export const DropDown = (props) => {
 
+  const css = `@media (max-width: 450px) {
+    .ddbtn {
+      width: 55%;
+      margin: auto
+    }
+  }
+  @media (min-width:451px) {
+    .ddbtn {
+      width: 40%;
+      margin: auto
+    }
+  }
+  `;
+
   return (
     <>
+      <style scoped>{css}</style>
       <DropdownButton
-        style={{ width: "45%", margin: "auto" }}
+        className="ddbtn"
         title={ props.title ? props.title : props.valArray && props.valArray.length ? props.valArray[0] : "Grocery Lists"}
         variant='primary'
       >

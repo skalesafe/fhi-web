@@ -3,16 +3,30 @@ import { Container, Row } from 'react-bootstrap';
 
 export const ScoreComponent = (props) => {
 
+  const css = `@media (max-width: 450px) {
+    .score {
+        max-width: fit-content;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+    }
+  }
+  @media (min-width:451px) {
+    .score {
+        max-width: -webkit-fill-available;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+  }
+  `;
+
   return (
-    <Container
-      style={{
-        maxWidth: 'fit-content',
-        marginTop: '5%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '2rem'
-      }}
-    >
+    <>
+    <style scoped>{css}</style>
+    <Container className="score">
       {props.scoreArray.map((val) => (
         <Row key={val}>
           <label
@@ -26,6 +40,7 @@ export const ScoreComponent = (props) => {
       ))}
 
     </Container>
+    </>
   )
 
 }
